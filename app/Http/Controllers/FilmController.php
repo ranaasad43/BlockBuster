@@ -32,7 +32,7 @@ class FilmController extends ViewsComposingController
 				$this->viewData['message_class'] = 'red-text';
 				$this->viewData['errors'] = $validator->messages()->all();
 				$this->viewData['message'] = 'Errors! in the form';            
-				dd($this->viewData);
+				//dd($this->viewData);
 				return $this->buildTemplate('addfilm');
 			}    	
 			//dd('clear');
@@ -82,12 +82,12 @@ class FilmController extends ViewsComposingController
 			})->when(!empty($req['search']),function($q)use($req){
 				$search_str = $req['search'];
 				return $q->where('title','like',"%$search_str%");
-			})->get();
+			})->paginate(6);
 
 			return $data;
     }
     public function showfilms(){
-      $films = Film::all();
+      $films = Film::paginate(6);
       return $films;
     }    
 

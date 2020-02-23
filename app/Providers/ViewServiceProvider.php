@@ -9,7 +9,7 @@ use App\Http\Composers\GenreDataComposer;
 use App\Http\Composers\StudioDataComposer;
 use App\Http\Composers\FilmDataComposer;
 use App\Http\Composers\FilmsDataComposer;
-// use App\Http\Composers\CartComposer;
+use App\Http\Composers\CartComposer;
 
 
 class ViewServiceProvider extends ServiceProvider
@@ -39,6 +39,8 @@ class ViewServiceProvider extends ServiceProvider
           '../components/feature', FilmDataComposer::class);
         View::composer(
           '../components/showfilms', FilmsDataComposer::class);
+        View::composer(
+          '../components/navbar', CartComposer::class);
         
 
     }

@@ -1,8 +1,9 @@
-<div class="col m9">				
+<div class="col m9">
+	<div class="films-container">				
 	<div class="heading">
 		<h5 class="z-depth-2 ">All Films</h5>	
 	</div>
-
+	
 	<ul class="feature-movies">
 		@if(!empty($films))
 			@foreach($films as $film)
@@ -27,6 +28,12 @@
 					
 				</li>
 			@endforeach
-		@endif				
-	</ul>			
+						
+	</ul>
+	<div class="clearfix"></div>
+	<div class="row ">
+		{{$films->links()}}
+	</div>
+	@endif
+	</div>			
 </div>

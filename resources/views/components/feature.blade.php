@@ -18,10 +18,19 @@
 						<div class="movie-year">{{$film->year}}</div>
 						<div class="movie-price">20$</div>
 						<a href="{{url('/film/'.$film->id)}}" id="add_to_cart" class="btn" >Read More</a>
-						<a href="{{url('/addToCart/'.$film->id)}}" id="add_to_cart" class="btn" data-product="{{$film->id}}">Add To Cart</a>
+						<a href="{{route('addtocart',$film->id)}}" id="add_to_cart" class="btn" data-product="{{$film->id}}">Add To Cart</a>
 					</li>
 				@endforeach
-			@endif				
+
+							
 		</ul>
-	</div>			
+		<div class="clearfix"></div>
+		
+		<div class="row ">
+		{{$films->links()}}
+		</div>
+		@endif
+	</div>
+	
+
 </div>

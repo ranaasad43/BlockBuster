@@ -38,3 +38,11 @@ Route::middleware(['admin'])->group(function(){
 Route::get('/search','FilmController@search');
 //session
 Route::get('/delsession','AdminController@logout')->name('delsession');
+
+//User
+Route::get('/register','UsersController@registerPage');
+Route::post('/register','UsersController@register')->name('register');
+Route::get('/login','UsersController@LoginPage')->name('login.page');
+Route::post('/login','UsersController@UserLogin')->name('login');
+
+Route::get('/addtocart/{id}','CartController@addToCart')->name('addtocart');

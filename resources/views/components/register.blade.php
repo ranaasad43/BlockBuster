@@ -1,45 +1,56 @@
-<div class="col m12">
+<div class="col m9">
 	<div class="heading">
 		<h5 class="z-depth-2">Registration</h5>
     
 	</div>
 	<div class="container form-container">
-		{!! Form::open(['url' => '/register' ,'method' => 'post', 'files' => true]) !!}
-    <div class="input-field ">
-        {{ Form::label('name:', null) }}
-        {{ Form::text('name', request()->get('name')) }}
+		<form class="col s12" method="post" action="{{route('register')}}" enctype="multipart/form-data">
+      @csrf
+    <div class="row">
+      <div class="input-field ">
+        <input  name="name" type="text" >
+        <label for="name">Name :</label>
+      </div>
     </div>
-    <div class="input-field ">
-        {{ Form::label('user name:', null) }}
-        {{ Form::text('user_name', request()->get('user_name')) }}
+    <div class="row">
+      <div class="input-field ">
+        <input  name="user_name" type="text" >
+        <label for="user_name">User Name :</label>
+      </div>
     </div>
-    <div class="input-field ">
-        {{ Form::label('email:', null) }}
-        {{ Form::email('email', request()->get('email')) }}
+    <div class="row">
+      <div class="input-field ">
+        <input  name="email" type="email" >
+        <label for="email">Email :</label>
+      </div>
     </div>
-    <div class="input-field ">
-        {{ Form::label('password:', null) }}
-        {{ Form::password('password') }}
+    <div class="row">
+      <div class="input-field ">
+        <input  name="password" type="password" >
+        <label for="password">Password :</label>
+      </div>
     </div>
-    <div class="input-field ">
-        {{ Form::label('retype-password:', null) }}
-        {{ Form::password('retype-password'  ) }}
+    <div class="row">
+      <div class="input-field ">
+        <input  name="retype_password" type="password" >
+        <label for="retype_password">Retype Password :</label>
+      </div>
     </div>
-    <p>
-      <label>          
-       {{ Form::radio('gender', 'male')}}
-       <span>Male</span>        
-     </label>
-    </p>
-    <p>    
-      <label>          
-       {{ Form::radio('gender', 'female')}}
-       <span>Female</span>        
-      </label>
-    </p>    
-    <div class="input-field ">
-        {{ Form::label('Date of Birth:', null) }}
-        {{ Form::date('dob', \Carbon\Carbon::now()) }}
+    <div class="row">
+        <div >
+          <label>Gender:</label>
+          <select class="browser-default" name="gender">
+            <option value="" disabled selected>gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>            
+          </select>          
+        </div>
+      </div>    
+    <div class="row">
+      <div>
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday">
+      </div>
     </div>    
     <div class="">
       <label>Select Country:</label>
@@ -49,17 +60,15 @@
       <option value="us">United States</option>
     </select>    
   </div>
-  <div class="file-field input-field">
-      <div class="btn">
-        <span>Profile Image</span>
-        <input type="file" name="image">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
-    </div>   
-    {{ Form::submit('Register' , ['class' => 'btn ']) }}
-	{!! Form::close() !!}	
+  <div class="row">
+   <div class="col s12">          
+    <div class="input-field col s12">
+     <button type="submit" class="btn-large">Add</button>
+    </div>
+   </div>
+  </div>
+</form>
+<div class="clearfix"></div>
 	</div>
 	
 	

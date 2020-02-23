@@ -115,8 +115,43 @@ body{
 	width: 100% !important;
 
 }
+ul.pagination{
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.pagination {
+	margin-top:5%;
+	display: flex;
+	align-items: center;
+	width: 30%;
+}
 
+.pagination li{
+	height: 100%;
+	background: #ddd;
+	border: 1px solid #0086b3;
+}
 
+.pagination li a{
+	font-size: 30px;
+	line-height: 0;
+}
+.pagination li span{
+	font-size: 30px;
+}
+
+.pagination li.active{
+	background:#333;
+	padding:0 10px;
+}
+.pagination >.disabled{
+	background-color: #26a69a;
+	padding:0 10px;
+}
+
+nav{
+	background-color: black;
+}
 
 
